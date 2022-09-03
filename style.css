@@ -1,0 +1,129 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    height: 100vh; width: 100vw;
+    background-image: linear-gradient(90deg, rgb(65, 185, 131, 1) 0%, rgb(0, 212, 255,1)100%);
+}
+
+.container{
+    display: grid;
+    width: 100%; height: 100%; 
+    justify-content: center; justify-items: center;
+    align-content: center; align-items: center;
+    grid-template-columns: repeat(3, auto);
+} 
+.celula{
+    width: 100px; height: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+}
+#x, #circle{
+    cursor: not-allowed;
+}
+
+.celula:nth-child(1), 
+.celula:nth-child(2),
+.celula:nth-child(3){
+    border-top: none;
+} 
+.celula:nth-child(1),
+.celula:nth-child(4),
+.celula:nth-child(7) {
+    border-left: none;
+}
+.celula:nth-child(3),
+.celula:nth-child(6),
+.celula:nth-child(9) {
+    border-right: none;
+}
+.celula:nth-child(7),
+.celula:nth-child(8),
+.celula:nth-child(9){
+    border-bottom: none;
+}
+
+.celula.x::before, .celula.x::after,
+.container.x .celula:hover::after,
+.container.x .celula:hover::before {
+    content: "";
+    background-color: white;
+    width:calc(100px * 0.9);
+    height: calc(100px * 0.15);
+    position: absolute;
+}
+
+.container.x .celula:hover::after, .container.x .celula:hover::before {
+    background-color:rgba(255, 255, 255, 0.637) ;
+}
+.celula.x::before, .container.x .celula:hover::before{
+    transform: rotate(45deg);
+   
+}
+.celula.x::after, .container.x .celula:hover::after{
+    transform: rotate(-45deg);
+   
+}
+
+.celula.circle::before, .celula.circle::after,
+.container.circle .celula:hover::after, .container.circle .celula:hover::before{
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.celula.circle::before, .container.circle .celula::before{
+    transform: rotate(45deg);
+}
+.celula.circle::after, .container.circle .celula::after{
+    transform: rotate(-45deg);
+}
+.container.circle .celula:hover::after, .container.circle .celula:hover::before{
+    background-color: rgba(255, 255, 255, 0.637);
+}
+.winning-message{
+    display: none;
+    position: fixed;
+    margin: 0%;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    left: 0%;
+    bottom:0%;
+    background-color: rgb(0, 0, 0, 0.8);    
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.winning-message > button {
+    font-size: 2.5rem;
+    background-color: rgb(65, 185, 131, 1);
+    color: white;
+    padding: 10px 15px;
+    cursor:pointer;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    text-align: center;
+} 
+.winning-message > button:hover{
+    background-color: white;
+    color: rgb(65, 185, 131, 1);
+}
+.winning-message >p {
+    font-size: 8rem;
+    color: white;
+}
