@@ -83,13 +83,16 @@ body {
 }
 
 .celula.circle::before, .container.circle .celula::before{
-    transform: rotate(45deg);
+    transform: rotate(45deg); 
+    border-radius: 50%;
 }
 .celula.circle::after, .container.circle .celula::after{
     transform: rotate(-45deg);
+    border-radius: 50%;
 }
 .container.circle .celula:hover::after, .container.circle .celula:hover::before{
     background-color: rgba(255, 255, 255, 0.637);
+    border-radius: 50%;
 }
 .winning-message{
     display: none;
